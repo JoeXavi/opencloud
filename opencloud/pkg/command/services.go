@@ -20,6 +20,7 @@ import (
 	clientlog "github.com/opencloud-eu/opencloud/services/clientlog/pkg/command"
 	collaboration "github.com/opencloud-eu/opencloud/services/collaboration/pkg/command"
 	eventhistory "github.com/opencloud-eu/opencloud/services/eventhistory/pkg/command"
+	filelogger "github.com/opencloud-eu/opencloud/services/filelogger/pkg/command"
 	frontend "github.com/opencloud-eu/opencloud/services/frontend/pkg/command"
 	gateway "github.com/opencloud-eu/opencloud/services/gateway/pkg/command"
 	graph "github.com/opencloud-eu/opencloud/services/graph/pkg/command"
@@ -256,6 +257,11 @@ var serviceCommands = []register.Command{
 	func(cfg *config.Config) *cobra.Command {
 		return ServiceCommand(cfg, cfg.Webfinger.Service.Name, webfinger.GetCommands(cfg.Webfinger), func(c *config.Config) {
 			cfg.Webfinger.Commons = cfg.Commons
+		})
+	},
+	func(cfg *config.Config) *cobra.Command {
+		return ServiceCommand(cfg, "filelogger", filelogger.GetCommands(cfg.Filelogger), func(c *config.Config) {
+			cfg.Filelogger.Commons = cfg.Commons
 		})
 	},
 }

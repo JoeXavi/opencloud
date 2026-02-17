@@ -15,6 +15,7 @@ import (
 	clientlog "github.com/opencloud-eu/opencloud/services/clientlog/pkg/config"
 	collaboration "github.com/opencloud-eu/opencloud/services/collaboration/pkg/config"
 	eventhistory "github.com/opencloud-eu/opencloud/services/eventhistory/pkg/config"
+	filelogger "github.com/opencloud-eu/opencloud/services/filelogger/pkg/config"
 	frontend "github.com/opencloud-eu/opencloud/services/frontend/pkg/config"
 	gateway "github.com/opencloud-eu/opencloud/services/gateway/pkg/config"
 	graph "github.com/opencloud-eu/opencloud/services/graph/pkg/config"
@@ -123,4 +124,5 @@ type Config struct {
 	WebDAV            *webdav.Config         `yaml:"webdav"`
 	Webfinger         *webfinger.Config      `yaml:"webfinger"`
 	Search            *search.Config         `yaml:"search"`
+	Filelogger        *filelogger.Config     `yaml:"filelogger"`
 }

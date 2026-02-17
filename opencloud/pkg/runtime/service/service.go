@@ -31,6 +31,7 @@ import (
 	clientlog "github.com/opencloud-eu/opencloud/services/clientlog/pkg/command"
 	collaboration "github.com/opencloud-eu/opencloud/services/collaboration/pkg/command"
 	eventhistory "github.com/opencloud-eu/opencloud/services/eventhistory/pkg/command"
+	filelogger "github.com/opencloud-eu/opencloud/services/filelogger/pkg/command"
 	frontend "github.com/opencloud-eu/opencloud/services/frontend/pkg/command"
 	gateway "github.com/opencloud-eu/opencloud/services/gateway/pkg/command"
 	graph "github.com/opencloud-eu/opencloud/services/graph/pkg/command"
@@ -272,6 +273,11 @@ func NewService(ctx context.Context, options ...Option) (*Service, error) {
 		cfg.Webfinger.Context = ctx
 		cfg.Webfinger.Commons = cfg.Commons
 		return webfinger.Execute(cfg.Webfinger)
+	})
+	reg(3, opts.Config.Filelogger.Service.Name, func(ctx context.Context, cfg *occfg.Config) error {
+		cfg.Filelogger.Context = ctx
+		cfg.Filelogger.Commons = cfg.Commons
+		return filelogger.Execute(cfg.Filelogger)
 	})
 	reg(3, opts.Config.IDP.Service.Name, func(ctx context.Context, cfg *occfg.Config) error {
 		cfg.IDP.Context = ctx

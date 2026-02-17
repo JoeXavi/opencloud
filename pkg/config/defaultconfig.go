@@ -15,6 +15,7 @@ import (
 	clientlog "github.com/opencloud-eu/opencloud/services/clientlog/pkg/config/defaults"
 	collaboration "github.com/opencloud-eu/opencloud/services/collaboration/pkg/config/defaults"
 	eventhistory "github.com/opencloud-eu/opencloud/services/eventhistory/pkg/config/defaults"
+	filelogger "github.com/opencloud-eu/opencloud/services/filelogger/pkg/config/defaults"
 	frontend "github.com/opencloud-eu/opencloud/services/frontend/pkg/config/defaults"
 	gateway "github.com/opencloud-eu/opencloud/services/gateway/pkg/config/defaults"
 	graph "github.com/opencloud-eu/opencloud/services/graph/pkg/config/defaults"
@@ -98,5 +99,6 @@ func DefaultConfig() *Config {
 		Web:               web.DefaultConfig(),
 		WebDAV:            webdav.DefaultConfig(),
 		Webfinger:         webfinger.DefaultConfig(),
+		Filelogger:        filelogger.DefaultConfig(),
 	}
 }

@@ -63,6 +63,7 @@ OC_MODULES = \
 	services/web \
 	services/webdav\
 	services/webfinger\
+	services/filelogger\
 	opencloud \
 	pkg \
 	protogen
