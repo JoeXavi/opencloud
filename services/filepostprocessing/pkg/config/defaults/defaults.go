@@ -1,7 +1,7 @@
 package defaults
 
 import (
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/config"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config"
 )
 
 func FullDefaultConfig() *config.Config {
@@ -13,7 +13,7 @@ func FullDefaultConfig() *config.Config {
 func DefaultConfig() *config.Config {
 	return &config.Config{
 		Service: config.Service{
-			Name: "filelogger",
+			Name: "filepostprocessing",
 		},
 		Events: config.Events{
 			Endpoint: "127.0.0.1:9233",
@@ -32,7 +32,7 @@ func EnsureDefaults(cfg *config.Config) {
 	}
 
 	if cfg.Service.Name == "" {
-		cfg.Service.Name = "filelogger"
+		cfg.Service.Name = "filepostprocessing"
 	}
 
 	if cfg.Events.Endpoint == "" {

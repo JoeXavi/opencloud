@@ -1,5 +1,5 @@
 SHELL := bash
-NAME := filelogger
+NAME := filepostprocessing
 
 ifneq (, $(shell command -v go 2> /dev/null)) # suppress `command not found warnings` for non go targets in CI
 include ../../.bingo/Variables.mk

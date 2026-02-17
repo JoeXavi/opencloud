@@ -4,9 +4,9 @@ import (
 	"github.com/opencloud-eu/opencloud/pkg/config/configlog"
 	"github.com/opencloud-eu/opencloud/pkg/generators"
 	"github.com/opencloud-eu/opencloud/pkg/log"
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/config"
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/config/parser"
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/service"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config/parser"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/service"
 	"github.com/opencloud-eu/reva/v2/pkg/events/stream"
 	"github.com/spf13/cobra"
 )
@@ -15,7 +15,7 @@ import (
 func Server(cfg *config.Config) *cobra.Command {
 	return &cobra.Command{
 		Use:   "server",
-		Short: "start filelogger service",
+		Short: "start filepostprocessing service",
 		PreRunE: func(cmd *cobra.Command, args []string) error {
 			return configlog.ReturnFatal(parser.ParseConfig(cfg))
 		},
@@ -34,9 +34,9 @@ func Server(cfg *config.Config) *cobra.Command {
 				return err
 			}
 
-			svc, err := service.NewFileLoggerService(logger, cfg, bus)
+			svc, err := service.NewFilePostProcessingService(logger, cfg, bus)
 			if err != nil {
-				logger.Error().Err(err).Msg("Failed to create filelogger service")
+				logger.Error().Err(err).Msg("Failed to create filepostprocessing service")
 				return err
 			}
 

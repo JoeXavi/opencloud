@@ -7,12 +7,12 @@ import (
 	"sync/atomic"
 
 	"github.com/opencloud-eu/opencloud/pkg/log"
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/config"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config"
 	"github.com/opencloud-eu/reva/v2/pkg/events"
 )
 
-// FileLoggerService is the service responsible for logging file events to a JSON file
-type FileLoggerService struct {
+// FilePostProcessingService is the service responsible for logging file events to a JSON file
+type FilePostProcessingService struct {
 	log     log.Logger
 	cfg     *config.Config
 	ch      <-chan events.Event
@@ -21,8 +21,8 @@ type FileLoggerService struct {
 	logFile *os.File
 }
 
-// NewFileLoggerService returns a filelogger service
-func NewFileLoggerService(logger log.Logger, cfg *config.Config, stream events.Stream) (*FileLoggerService, error) {
+// NewFilePostProcessingService returns a filepostprocessing service
+func NewFilePostProcessingService(logger log.Logger, cfg *config.Config, stream events.Stream) (*FilePostProcessingService, error) {
 	if stream == nil {
 		return nil, fmt.Errorf("need non nil stream to work properly")
 	}
@@ -52,7 +52,7 @@ func NewFileLoggerService(logger log.Logger, cfg *config.Config, stream events.S
 		return nil, fmt.Errorf("could not open log file %s: %w", cfg.LogFilePath, err)
 	}
 
-	return &FileLoggerService{
+	return &FilePostProcessingService{
 		log:     logger,
 		cfg:     cfg,
 		ch:      ch,
@@ -62,8 +62,8 @@ func NewFileLoggerService(logger log.Logger, cfg *config.Config, stream events.S
 }
 
 // Run runs the service
-func (fs *FileLoggerService) Run() error {
-	fs.log.Info().Str("file", fs.cfg.LogFilePath).Msg("Starting filelogger service")
+func (fs *FilePostProcessingService) Run() error {
+	fs.log.Info().Str("file", fs.cfg.LogFilePath).Msg("Starting filepostprocessing service")
 EventLoop:
 	for {
 		select {
@@ -84,13 +84,13 @@ EventLoop:
 	return fs.logFile.Close()
 }
 
-func (fs *FileLoggerService) Close() {
+func (fs *FilePostProcessingService) Close() {
 	if fs.stopped.CompareAndSwap(false, true) {
 		close(fs.stopCh)
 	}
 }
 
-func (fs *FileLoggerService) processEvent(event events.Event) {
+func (fs *FilePostProcessingService) processEvent(event events.Event) {
 	// Simple structure for logging
 	logEntry := struct {
 		ID          string      `json:"id"`

@@ -15,7 +15,7 @@ import (
 	clientlog "github.com/opencloud-eu/opencloud/services/clientlog/pkg/config"
 	collaboration "github.com/opencloud-eu/opencloud/services/collaboration/pkg/config"
 	eventhistory "github.com/opencloud-eu/opencloud/services/eventhistory/pkg/config"
-	filelogger "github.com/opencloud-eu/opencloud/services/filelogger/pkg/config"
+	filepostprocessing "github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config"
 	frontend "github.com/opencloud-eu/opencloud/services/frontend/pkg/config"
 	gateway "github.com/opencloud-eu/opencloud/services/gateway/pkg/config"
 	graph "github.com/opencloud-eu/opencloud/services/graph/pkg/config"
@@ -83,46 +83,47 @@ type Config struct {
 	AdminUserID       string               `yaml:"admin_user_id" env:"OC_ADMIN_USER_ID" desc:"ID of a user, that should receive admin privileges. Consider that the UUID can be encoded in some LDAP deployment configurations like in .ldif files. These need to be decoded beforehand." introductionVersion:"1.0.0"`
 	Runtime           Runtime              `yaml:"runtime"`
 
-	Activitylog       *activitylog.Config    `yaml:"activitylog"`
-	Antivirus         *antivirus.Config      `yaml:"antivirus"`
-	AppProvider       *appProvider.Config    `yaml:"app_provider"`
-	AppRegistry       *appRegistry.Config    `yaml:"app_registry"`
-	Audit             *audit.Config          `yaml:"audit"`
-	AuthApp           *authapp.Config        `yaml:"auth_app"`
-	AuthBasic         *authbasic.Config      `yaml:"auth_basic"`
-	AuthBearer        *authbearer.Config     `yaml:"auth_bearer"`
-	AuthMachine       *authmachine.Config    `yaml:"auth_machine"`
-	AuthService       *authservice.Config    `yaml:"auth_service"`
-	Clientlog         *clientlog.Config      `yaml:"clientlog"`
-	Collaboration     *collaboration.Config  `yaml:"collaboration"`
-	EventHistory      *eventhistory.Config   `yaml:"eventhistory"`
-	Frontend          *frontend.Config       `yaml:"frontend"`
-	Gateway           *gateway.Config        `yaml:"gateway"`
-	Graph             *graph.Config          `yaml:"graph"`
-	Groups            *groups.Config         `yaml:"groups"`
-	IDM               *idm.Config            `yaml:"idm"`
-	IDP               *idp.Config            `yaml:"idp"`
-	Invitations       *invitations.Config    `yaml:"invitations"`
-	Nats              *nats.Config           `yaml:"nats"`
-	Notifications     *notifications.Config  `yaml:"notifications"`
-	OCM               *ocm.Config            `yaml:"ocm"`
-	OCS               *ocs.Config            `yaml:"ocs"`
-	Postprocessing    *postprocessing.Config `yaml:"postprocessing"`
-	Policies          *policies.Config       `yaml:"policies"`
-	Proxy             *proxy.Config          `yaml:"proxy"`
-	Settings          *settings.Config       `yaml:"settings"`
-	Sharing           *sharing.Config        `yaml:"sharing"`
-	SSE               *sse.Config            `yaml:"sse"`
-	StorageSystem     *storagesystem.Config  `yaml:"storage_system"`
-	StoragePublicLink *storagepublic.Config  `yaml:"storage_public"`
-	StorageShares     *storageshares.Config  `yaml:"storage_shares"`
-	StorageUsers      *storageusers.Config   `yaml:"storage_users"`
-	Thumbnails        *thumbnails.Config     `yaml:"thumbnails"`
-	Userlog           *userlog.Config        `yaml:"userlog"`
-	Users             *users.Config          `yaml:"users"`
-	Web               *web.Config            `yaml:"web"`
-	WebDAV            *webdav.Config         `yaml:"webdav"`
-	Webfinger         *webfinger.Config      `yaml:"webfinger"`
-	Search            *search.Config         `yaml:"search"`
-	Filelogger        *filelogger.Config     `yaml:"filelogger"`
+	Activitylog        *activitylog.Config        `yaml:"activitylog"`
+	Antivirus          *antivirus.Config          `yaml:"antivirus"`
+	AppProvider        *appProvider.Config        `yaml:"app_provider"`
+	AppRegistry        *appRegistry.Config        `yaml:"app_registry"`
+	Audit              *audit.Config              `yaml:"audit"`
+	AuthApp            *authapp.Config            `yaml:"auth_app"`
+	AuthBasic          *authbasic.Config          `yaml:"auth_basic"`
+	AuthBearer         *authbearer.Config         `yaml:"auth_bearer"`
+	AuthMachine        *authmachine.Config        `yaml:"auth_machine"`
+	AuthService        *authservice.Config        `yaml:"auth_service"`
+	Clientlog          *clientlog.Config          `yaml:"clientlog"`
+	Collaboration      *collaboration.Config      `yaml:"collaboration"`
+	EventHistory       *eventhistory.Config       `yaml:"eventhistory"`
+	Frontend           *frontend.Config           `yaml:"frontend"`
+	Gateway            *gateway.Config            `yaml:"gateway"`
+	Graph              *graph.Config              `yaml:"graph"`
+	Groups             *groups.Config             `yaml:"groups"`
+	IDM                *idm.Config                `yaml:"idm"`
+	IDP                *idp.Config                `yaml:"idp"`
+	Invitations        *invitations.Config        `yaml:"invitations"`
+	Nats               *nats.Config               `yaml:"nats"`
+	Notifications      *notifications.Config      `yaml:"notifications"`
+	OCM                *ocm.Config                `yaml:"ocm"`
+	OCS                *ocs.Config                `yaml:"ocs"`
+	Postprocessing     *postprocessing.Config     `yaml:"postprocessing"`
+	Policies           *policies.Config           `yaml:"policies"`
+	Proxy              *proxy.Config              `yaml:"proxy"`
+	Settings           *settings.Config           `yaml:"settings"`
+	Sharing            *sharing.Config            `yaml:"sharing"`
+	SSE                *sse.Config                `yaml:"sse"`
+	StorageSystem      *storagesystem.Config      `yaml:"storage_system"`
+	StoragePublicLink  *storagepublic.Config      `yaml:"storage_public"`
+	StorageShares      *storageshares.Config      `yaml:"storage_shares"`
+	StorageUsers       *storageusers.Config       `yaml:"storage_users"`
+	Thumbnails         *thumbnails.Config         `yaml:"thumbnails"`
+	Userlog            *userlog.Config            `yaml:"userlog"`
+	Users              *users.Config              `yaml:"users"`
+	Web                *web.Config                `yaml:"web"`
+	WebDAV             *webdav.Config             `yaml:"webdav"`
+	Webfinger          *webfinger.Config          `yaml:"webfinger"`
+	Search             *search.Config             `yaml:"search"`
+	Filepostprocessing *filepostprocessing.Config `yaml:"filepostprocessing"`
+	Filelogger         *filepostprocessing.Config `yaml:"filelogger"` // Deprecated: use filepostprocessing instead
 }

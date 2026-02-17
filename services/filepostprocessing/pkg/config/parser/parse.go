@@ -4,8 +4,8 @@ import (
 	"errors"
 
 	occfg "github.com/opencloud-eu/opencloud/pkg/config"
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/config"
-	"github.com/opencloud-eu/opencloud/services/filelogger/pkg/config/defaults"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config"
+	"github.com/opencloud-eu/opencloud/services/filepostprocessing/pkg/config/defaults"
 
 	"github.com/opencloud-eu/opencloud/pkg/config/envdecode"
 )

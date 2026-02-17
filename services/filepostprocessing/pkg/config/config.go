@@ -12,9 +12,9 @@ type Config struct {
 
 	Service Service `yaml:"-"`
 
-	LogLevel string `yaml:"loglevel" env:"OC_LOG_LEVEL;FILELOGGER_LOG_LEVEL" desc:"The log level. Valid values are: 'panic', 'fatal', 'error', 'warn', 'info', 'debug', 'trace'." introductionVersion:"1.0.0"`
+	LogLevel string `yaml:"loglevel" env:"OC_LOG_LEVEL;FILEPOSTPROCESSING_LOG_LEVEL;FILELOGGER_LOG_LEVEL" desc:"The log level. Valid values are: 'panic', 'fatal', 'error', 'warn', 'info', 'debug', 'trace'." introductionVersion:"1.0.0"`
 
-	LogFilePath string `yaml:"log_file_path" env:"FILELOGGER_LOG_FILE_PATH" desc:"The path to the JSON log file where events will be recorded." introductionVersion:"1.0.0"`
+	LogFilePath string `yaml:"log_file_path" env:"FILEPOSTPROCESSING_LOG_FILE_PATH;FILELOGGER_LOG_FILE_PATH" desc:"The path to the JSON log file where events will be recorded." introductionVersion:"1.0.0"`
 
 	Events Events `yaml:"events"`
 
