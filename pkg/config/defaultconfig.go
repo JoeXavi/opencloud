@@ -100,6 +100,5 @@ func DefaultConfig() *Config {
 		WebDAV:             webdav.DefaultConfig(),
 		Webfinger:          webfinger.DefaultConfig(),
 		Filepostprocessing: filepostprocessing.DefaultConfig(),
-		Filelogger:         filepostprocessing.DefaultConfig(),
 	}
 }

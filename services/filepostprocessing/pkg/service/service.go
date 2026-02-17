@@ -41,7 +41,7 @@ func NewFilePostProcessingService(logger log.Logger, cfg *config.Config, stream 
 		events.ContainerCreated{},
 	}
 
-	ch, err := events.Consume(stream, "filelogger", registeredEvents...)
+	ch, err := events.Consume(stream, "filepostprocessing", registeredEvents...)
 	if err != nil {
 		return nil, err
 	}

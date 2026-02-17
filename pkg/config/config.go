@@ -125,5 +125,4 @@ type Config struct {
 	Webfinger          *webfinger.Config          `yaml:"webfinger"`
 	Search             *search.Config             `yaml:"search"`
 	Filepostprocessing *filepostprocessing.Config `yaml:"filepostprocessing"`
-	Filelogger         *filepostprocessing.Config `yaml:"filelogger"` // Deprecated: use filepostprocessing instead
 }
