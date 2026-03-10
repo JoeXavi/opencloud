@@ -1,0 +1,7 @@
+tunnel: 46cd2a6b-a691-4488-bf6b-2ca9e032beab
+credentials-file: /home/joe/.cloudflared/46cd2a6b-a691-4488-bf6b-2ca9e032beab.json
+
+ingress:
+  - hostname: own-cloud.idsostream.com
+    service: http://localhost:8081
+  - service: http_status:404

@@ -1,0 +1,9 @@
+tunnel: c7a17371-3800-4625-94b4-0ea2c79a3465
+credentials-file: /home/joe/.cloudflared/c7a17371-3800-4625-94b4-0ea2c79a3465.json
+
+ingress:
+  - hostname: open-cloud.idsostream.com
+    service: https://localhost:9200
+    originRequest:
+      noTLSVerify: true
+  - service: http_status:404
